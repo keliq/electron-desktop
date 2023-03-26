@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Electron Desktop</title>
+</head>
+
+<body>
+<pre>
+win = new BrowserWindow({
+  width: 600,
+  height: 500,
+  webPreferences: {
+    preload: path.join(__dirname, '../preload/index.js'),
+    sandbox: false, // 如果开启了沙箱模式（默认开启），在 preload 中引用 clipboard 会报错
+  },
+})
+</pre>
+  
+</body>
+
+</html>

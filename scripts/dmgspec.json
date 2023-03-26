@@ -1,0 +1,8 @@
+{
+  "title": "Test",
+  "icon-size": 72,
+  "contents": [
+    { "x": 380, "y": 180, "type": "link", "path": "/Applications" },
+    { "x": 160, "y": 180, "type": "file", "path": "../electron-desktop-darwin-x64/electron-desktop.app/" }
+  ]
+}

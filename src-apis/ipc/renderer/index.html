@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>test</title>
+</head>
+
+<body>
+  <div id="drag-area"></div>
+  <button id="api">API测试</button>
+  <a href="https://www.baidu.com" target="_blank">前往百度</a>
+  <iframe src="https://www.taobao.com"></iframe>
+  <webview src="https://www.taobao.com"></webview>
+  <script>
+    const api = document.getElementById('api')
+    jsBridge.listen('channel-name', (...args) => {
+      console.log('async args', args)
+    })
+
+    api.addEventListener('click', () => {
+      // 异步消息通知，非阻塞
+      const asyncVal = jsBridge.send('channel-name', 1, 2, 3)
+      // // 同步返回，页面阻塞
+      // const syncVal = jsBridge.sendSync('channel-name', 1, 2, 3)
+      // console.log('syncVal', syncVal)
+      // jsBridge.invoke('channel-name', 7, 8, 9).then(res => {
+      //   console.log('invokeVal', res)
+      // })
+    })
+  </script>
+</body>
+
+</html>
