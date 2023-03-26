@@ -1,0 +1,42 @@
+{
+  "name": "electron-desktop",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "pack-by-packager": "electron-packager dest --overwrite",
+    "pack-by-appdmg": "appdmg scripts/dmgspec.json electron-desktop.dmg",
+    "pack-by-builder": "CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder",
+    "pack-by-forge": "electron-forge package dest",
+    "make-by-forge": "electron-forge make dest",
+    "demo": "node scripts/init.js"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.5",
+    "@electron-forge/maker-dmg": "^6.0.5",
+    "@electron-forge/maker-squirrel": "^6.0.5",
+    "@electron-forge/maker-zip": "^6.0.5",
+    "appdmg": "^0.6.6",
+    "electron": "^23.1.4",
+    "electron-builder": "^23.6.0",
+    "minimist": "^1.2.8"
+  },
+  "dependencies": {
+    "electron-localshortcut": "^3.2.1",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.keliq.electron-desktop",
+    "directories": {
+      "output": "builder-dist",
+      "app": "src"
+    },
+    "mac": {
+      "asar": true
+    },
+    "win": {},
+    "files": [
+      "src/**/*"
+    ]
+  }
+}
