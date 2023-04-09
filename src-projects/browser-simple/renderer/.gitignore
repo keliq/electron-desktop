@@ -8,10 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist*
-dest*
-test*
-build*
+dist
+dist-ssr
 *.local
 
 # Editor directories and files
@@ -24,12 +22,3 @@ build*
 *.njsproj
 *.sln
 *.sw?
-*-darwin-*
-*.dmg
-*.zip
-
-debug
-
-out/
-
-src-projects/_*

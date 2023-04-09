@@ -1,11 +1,11 @@
 {
-  "name": "electron-desktop",
+  "name": "Electron-Desktop",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "start": "electron .",
     "pack-by-packager": "electron-packager dest --overwrite",
-    "pack-by-appdmg": "appdmg scripts/dmgspec.json electron-desktop.dmg",
+    "pack-by-appdmg": "appdmg scripts/dmgspec.json Electron-Desktop.dmg",
     "pack-by-builder": "CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder",
     "pack-by-forge": "electron-forge package dest",
     "make-by-forge": "electron-forge make dest",
@@ -22,6 +22,7 @@
     "minimist": "^1.2.8"
   },
   "dependencies": {
+    "@vscode/sudo-prompt": "^9.3.1",
     "electron-localshortcut": "^3.2.1",
     "electron-squirrel-startup": "^1.0.0"
   },
@@ -34,7 +35,6 @@
     "mac": {
       "asar": true
     },
-    "win": {},
     "files": [
       "src/**/*"
     ]

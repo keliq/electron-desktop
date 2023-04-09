@@ -10,7 +10,7 @@ protocol.registerSchemesAsPrivileged([
   {
     scheme: 'hello',
     privileges: {
-      standard: true
+      standard: true,
     },
   },
 ])
@@ -34,10 +34,9 @@ app.whenReady().then(() => {
   // interceptHttpsProtocol()
   // interceptBufferProtocol()
   // interceptStringProtocol()
-  interceptHttpProtocol()
-
+  // interceptHttpProtocol()
   // console.log('session protocol', protocol, session.defaultSession.protocol)
-  // registerFileProtocol()
+  registerFileProtocol()
 })
 
 const redDot =
@@ -252,7 +251,9 @@ function interceptHttpsProtocol() {
 function registerFileProtocol() {
   protocol.registerFileProtocol('hello', (request, callback) => {
     console.log('hello', request)
-    const relativePath = request.url.replace(/^hello:\/*?/, '').replace(/\/?\?.*/, '')
+    // const relativePath = request.url.replace(/^hello:\/*?/, '').replace(/\/?\?.*/, '')
+    const relativePath = request.url.replace(/^hello:\/\/host\//, '').replace(/\/?\?.*/, '')
+    console.log('relativePath', relativePath)
     const filePath = path.join(__dirname, '../renderer', relativePath)
     console.log('filePath', filePath)
     callback({ path: filePath, headers: { Accept: 'text/html' } })
@@ -274,12 +275,5 @@ function registerFileProtocol() {
   //     console.log('filePath', filePath)
   //     callback(filePath)
   //   }
-  // })
-
-  // protocol.registerFileProtocol('hello', (request, callback) => {
-  //   console.log('hello', request)
-  //   // const [,fileName] =
-  //   // 只有设置了 privileges 为 standard 才能取得相对路径
-  //   callback(path.join(__dirname, '../renderer', 'embed.html'))
   // })
 }
