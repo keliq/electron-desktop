@@ -26,5 +26,5 @@ function notificationApi() {
   })
   setTimeout(() => {
     notice.show()
-  }, 3000)
+  }, 2000)
 }
